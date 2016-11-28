@@ -15,7 +15,6 @@ public class FavouriteActivity extends AppCompatActivity {
         if(savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                   // .add(R.id.edition_container, new MyEditionFragment())
                     .add(R.id.list_container, new FavListFragment())
                     .commit();
         }

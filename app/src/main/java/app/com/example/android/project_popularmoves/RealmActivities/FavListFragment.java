@@ -33,7 +33,6 @@ public class FavListFragment extends Fragment {
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_favourite, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        //ButterKnife.bind(this, view);
         return view;
     }
 

@@ -27,7 +27,16 @@ import io.realm.RealmResults;
  */
 
 public class FavListAdapter extends RecyclerView.Adapter<FavListAdapter.ViewHolder> implements RealmChangeListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
+        ImageButton imageV;
+
+        public ViewHolder(final ImageButton ImgView) {
+            super(ImgView);
+            imageV = ImgView;
+
+        }
+    }
     private final RealmResults<FavoritMovie> fav;
     private static Activity context;
     public FavListAdapter(RealmResults<FavoritMovie> Movies, Activity context) {
@@ -80,13 +89,6 @@ public class FavListAdapter extends RecyclerView.Adapter<FavListAdapter.ViewHold
                     intent.putExtra("Movies", (Parcelable) movie);
                     context.startActivity(intent);
                 }
-//                movieListener.setSelectedMovie(movie.getID(),movie.getOverview()
-//                ,movie.getUserRating(),movie.getReleaseData(),movie.getImageURL()
-//                ,movie.getTitle());
-//                Intent intent = new Intent(context,DetailedImageActivity.class);
-//                intent.putExtra("Movies", (Parcelable) movie);
-//                context.startActivity(intent);
-//                Log.v("Favourite==>",movie.getID()+" "+movie.getTitle());
 
             }
         });
@@ -103,14 +105,5 @@ public class FavListAdapter extends RecyclerView.Adapter<FavListAdapter.ViewHold
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageButton imageV;
-
-        public ViewHolder(final ImageButton ImgView) {
-            super(ImgView);
-            imageV = ImgView;
-
-        }
-    }
 }
