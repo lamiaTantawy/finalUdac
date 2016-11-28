@@ -2,8 +2,10 @@ package app.com.example.android.project_popularmoves.RealmActivities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import com.squareup.picasso.Picasso;
 
 import app.com.example.android.project_popularmoves.DetailedImageActivity;
 import app.com.example.android.project_popularmoves.FavoritMovie;
+import app.com.example.android.project_popularmoves.MainActivity;
 import app.com.example.android.project_popularmoves.Movie;
 import app.com.example.android.project_popularmoves.MovieListener;
 import app.com.example.android.project_popularmoves.R;
@@ -26,7 +29,7 @@ import io.realm.RealmResults;
 public class FavListAdapter extends RecyclerView.Adapter<FavListAdapter.ViewHolder> implements RealmChangeListener {
 
     private final RealmResults<FavoritMovie> fav;
-    private final Activity context;
+    private static Activity context;
     public FavListAdapter(RealmResults<FavoritMovie> Movies, Activity context) {
         fav = Movies;
         fav.addChangeListener(this);
@@ -43,7 +46,11 @@ public class FavListAdapter extends RecyclerView.Adapter<FavListAdapter.ViewHold
      //   imageView = (ImageView)view.findViewById(R.id.imgView);
         return new ViewHolder((ImageButton) view);
     }
-
+    public static boolean isTablet() {
+        return (context.getResources().getConfiguration().screenLayout
+                & Configuration.SCREENLAYOUT_SIZE_MASK)
+                >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+    }
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
        // holder.mTextTitle.setText(fav.get(position).getImageURL());
@@ -60,12 +67,25 @@ public class FavListAdapter extends RecyclerView.Adapter<FavListAdapter.ViewHold
                 movie.setReleaseData(fav.get(position).getReleaseData());
                 movie.setOverview(fav.get(position).getOverview());
 
-          /*      movieListener.setSelectedMovie(movie.getID(),movie.getOverview()
-                ,movie.getUserRating(),movie.getReleaseData(),movie.getImageURL()
-                ,movie.getTitle());*/
-                Intent intent = new Intent(context,DetailedImageActivity.class);
-                intent.putExtra("Movies", (Parcelable) movie);
-                context.startActivity(intent);
+                if(isTablet())
+                {
+                    Log.v("Tabletttt>","has extra");
+                    Intent intent = new Intent(context,MainActivity.class);
+                    intent.putExtra("Movies", (Parcelable) movie);
+                    context.startActivity(intent);
+                }
+                else
+                {
+                    Intent intent = new Intent(context,DetailedImageActivity.class);
+                    intent.putExtra("Movies", (Parcelable) movie);
+                    context.startActivity(intent);
+                }
+//                movieListener.setSelectedMovie(movie.getID(),movie.getOverview()
+//                ,movie.getUserRating(),movie.getReleaseData(),movie.getImageURL()
+//                ,movie.getTitle());
+//                Intent intent = new Intent(context,DetailedImageActivity.class);
+//                intent.putExtra("Movies", (Parcelable) movie);
+//                context.startActivity(intent);
 //                Log.v("Favourite==>",movie.getID()+" "+movie.getTitle());
 
             }
