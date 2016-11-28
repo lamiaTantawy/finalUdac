@@ -166,6 +166,7 @@ public class DetailedFragment extends Fragment  {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         TrailarExtandable = (ExpandableListView) view.findViewById(R.id.expListView1);
         TrailarExtandable.setAdapter(new ExpandableListAdapter(groupTrailar, childrenTrailar,getActivity()));
         TrailarExtandable.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
