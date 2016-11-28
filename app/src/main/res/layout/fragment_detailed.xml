@@ -1,0 +1,122 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.com.example.android.project_popularmoves.DetailedFragment">
+
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_dark"
+        android:textSize="15sp"
+        android:id="@+id/detailTitle"
+        tools:targetApi="ice_cream_sandwich" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="185dp"
+            android:layout_height="185dp"
+            app:srcCompat="@drawable/pic"
+            android:id="@+id/detailedImg"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/release"
+            android:layout_weight="1" />
+        <Button
+            android:text="Add to Favourite"
+            android:id="@+id/fav_bt"
+            android:layout_width="100dp"
+            android:layout_height="55dp" />
+        <Button
+            android:text="Remove from Favourite"
+            android:id="@+id/Remfav_bt"
+            android:layout_width="100dp"
+            android:layout_height="55dp" />
+    </LinearLayout>
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailedOverview" />
+   <!-- <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:text="Trailers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_dark"
+            android:textSize="15sp"
+            android:id="@+id/TrailerTx"
+            tools:targetApi="ice_cream_sandwich" />
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/videobutton"
+        android:id="@+id/trailerBt"/>
+        <TextView
+            android:text="Reviews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_dark"
+            android:textSize="15sp"
+            android:id="@+id/ReviewTx"
+            tools:targetApi="ice_cream_sandwich" />
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/review"
+        android:id="@+id/reviewBt"/>
+    </LinearLayout> !-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:orientation="vertical">
+        <TextView
+            android:text="Trailars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_dark"
+            android:textSize="15sp"
+            android:id="@+id/TrailarTitle"
+            tools:targetApi="ice_cream_sandwich"/>
+        <ExpandableListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/expListView1">
+        </ExpandableListView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:text="Reviews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_dark"
+        android:textSize="15sp"
+        android:id="@+id/Title"
+        tools:targetApi="ice_cream_sandwich"/>
+    <ExpandableListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/expListView">
+    </ExpandableListView>
+    </LinearLayout>
+
+</LinearLayout>
