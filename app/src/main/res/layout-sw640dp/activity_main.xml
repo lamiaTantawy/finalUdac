@@ -13,12 +13,12 @@
 
     <FrameLayout
         android:layout_width="0dp"
-        android:layout_weight="0.4"
+        android:layout_weight="0.5"
         android:layout_height="match_parent"
         android:id="@+id/flMain"/>
     <FrameLayout
         android:layout_width="0dp"
-        android:layout_weight="0.6"
+        android:layout_weight="0.5"
         android:layout_height="match_parent"
         android:id="@+id/fldetail"/>
     <!--<fragment-->
